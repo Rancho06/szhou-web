@@ -2,27 +2,27 @@
 
 /* modules */
 let gulp = require('gulp'),
-	gutil = require('gulp-util'),
-	uglify = require('gulp-uglify'),
-	coffee = require('gulp-coffee'),
-	concat = require('gulp-concat'),
-	sass = require('gulp-ruby-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
-	webserver = require('gulp-webserver');
+    gutil = require('gulp-util'),
+    uglify = require('gulp-uglify'),
+    coffee = require('gulp-coffee'),
+    concat = require('gulp-concat'),
+    sass = require('gulp-ruby-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    webserver = require('gulp-webserver');
 
 /* source files */
 let coffeeSources = './components/coffee/*.coffee',
-	sassSources = ['./components/sass/style1.scss'],
-	jsSources = './components/scripts/*.js';
+    sassSources = ['./components/sass/style1.scss'],
+    jsSources = './components/scripts/*.js';
 
 /* tasks */
 
 /* converts all .coffee into .js scripts */
 gulp.task('coffee', function() {
 	gulp.src(coffeeSources)
-		.pipe(sourcemaps.init())
-		.pipe(coffee({ bare : true }).on('error', gutil.log))
-		.pipe(sourcemaps.write())
+        .pipe(sourcemaps.init())
+        .pipe(coffee({ bare : true }).on('error', gutil.log))
+        .pipe(sourcemaps.write())
 		.pipe(gulp.dest('components/scripts'));
 });
 
