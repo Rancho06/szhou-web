@@ -6,7 +6,7 @@ let express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    connectLR = require('connect-livereload');
+    livereload = require('connect-livereload');
 
 let routes = require('./routes');
 
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(connectLR());
+app.use(livereload());
 app.use(express.static(path.join(__dirname, 'builds')));
 
 app.use('/', routes);
